@@ -3,937 +3,1106 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hanna | 徳島市 プライベートエステサロン</title>
-  <meta name="description" content="徳島市住吉の完全予約制プライベートエステサロン。オールハンドの技術で肌質改善・ニキビ・赤ら顔に向き合います。" />
+  <title>Hanna | エステサロン 徳島</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #faf8f5;
-      --surface: #f3efe9;
-      --surface2: #ede8e0;
-      --ink: #2c2520;
-      --mid: #7a6f66;
-      --muted: #b0a89e;
-      --border: rgba(44,37,32,0.1);
-      --accent: #b5906a;
-      --accent-light: #d4b896;
-      --accent-pale: rgba(181,144,106,0.12);
-      --white: #ffffff;
+      --beige:    #ddd0c0;
+      --beige-lt: #ede5da;
+      --beige-dk: #9e8570;
+      --cream:    #f8f5f0;
+      --white:    #ffffff;
+      --text:     #2c2218;
+      --muted:    #6b5e54;
+      --border:   rgba(170,148,128,0.45);
+      --facial-accent:  #b8a090;
+      --relax-accent:   #8a9e90;
+      --relax-muted:    #5a7060;
+      --facial-bg:      #fdfaf7;
+      --relax-bg:       #f4f7f5;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--ink);
       font-family: 'Noto Serif JP', serif;
-      font-weight: 300;
-      line-height: 1.8;
+      background: var(--cream);
+      color: var(--text);
       overflow-x: hidden;
     }
 
-    /* ─── NAV ─── */
-    header {
+    #glitter-canvas {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.4;
+    }
+
+    /* ── Nav ── */
+    nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      padding: 24px 48px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      background: linear-gradient(to bottom, rgba(250,248,245,0.97) 0%, rgba(250,248,245,0) 100%);
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(250, 248, 245, 0.92);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
     }
 
-    .logo {
+    .nav-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 300;
-      letter-spacing: 0.25em;
-      color: var(--ink);
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      color: var(--text);
       text-decoration: none;
     }
-    .logo span { color: var(--accent); }
 
-    nav { display: flex; gap: 36px; }
-    nav a {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--mid);
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
+
+    .nav-links a {
       text-decoration: none;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      color: var(--muted);
       transition: color 0.3s;
     }
-    nav a:hover { color: var(--accent); }
+
+    .nav-links a:hover { color: var(--text); }
 
     .nav-reserve {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      font-weight: 400;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
+      background: var(--text) !important;
       color: var(--white) !important;
-      background: var(--accent);
-      padding: 10px 22px;
-      text-decoration: none;
-      transition: background 0.3s;
+      padding: 10px 24px;
+      border-radius: 2px;
+      letter-spacing: 0.18em !important;
+      transition: background 0.3s !important;
     }
-    .nav-reserve:hover { background: var(--accent-light) !important; }
 
-    /* ─── HERO ─── */
-    .hero {
+    .nav-reserve:hover { background: #5a4e46 !important; }
+
+    /* ── Hero ── */
+    #hero {
       position: relative;
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
+      justify-content: center;
       text-align: center;
       overflow: hidden;
+      background: linear-gradient(155deg, #ffffff 0%, #f5f0ea 45%, #faf8f5 100%);
+      z-index: 1;
     }
 
-    .hero-bg {
+    .hero-deco {
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 60% 35%, rgba(181,144,106,0.1) 0%, transparent 55%),
-        radial-gradient(ellipse at 20% 70%, rgba(181,144,106,0.06) 0%, transparent 50%),
-        var(--bg);
+      border-radius: 50%;
+      filter: blur(90px);
+      pointer-events: none;
+    }
+    .hero-deco-1 {
+      width: 560px; height: 560px;
+      background: radial-gradient(circle, rgba(215,200,182,0.28) 0%, transparent 70%);
+      top: -120px; right: -100px;
+    }
+    .hero-deco-2 {
+      width: 420px; height: 420px;
+      background: radial-gradient(circle, rgba(232,221,208,0.35) 0%, transparent 70%);
+      bottom: -60px; left: -80px;
     }
 
-    .hero-grain {
-      position: absolute;
-      inset: 0;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-      background-size: 200px;
-    }
-
-    .hero-line {
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 1px;
-      background: linear-gradient(to bottom, transparent, rgba(181,144,106,0.25), transparent);
-    }
-    .hero-line:nth-child(1) { left: 15%; }
-    .hero-line:nth-child(2) { right: 15%; }
-
-    .hero-content { position: relative; z-index: 2; }
-
-    .hero-sub {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
-      letter-spacing: 0.45em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 28px;
+    .hero-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.82rem;
+      letter-spacing: 0.5em;
+      color: var(--beige-dk);
+      margin-bottom: 22px;
+      animation: fadeUp 1s ease both;
     }
 
     .hero-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(72px, 12vw, 130px);
+      font-size: clamp(4rem, 9vw, 7.5rem);
       font-weight: 300;
+      letter-spacing: 0.4em;
+      color: var(--text);
       line-height: 1;
-      letter-spacing: 0.08em;
-      color: var(--ink);
-      margin-bottom: 8px;
+      animation: fadeUp 1s 0.2s ease both;
     }
 
-    .hero-title-ja {
-      font-size: 14px;
-      font-weight: 200;
-      letter-spacing: 0.5em;
+    .hero-sub {
+      margin-top: 28px;
+      font-size: 0.76rem;
+      letter-spacing: 0.28em;
       color: var(--muted);
-      margin-bottom: 40px;
-      display: block;
+      line-height: 2.4;
+      animation: fadeUp 1s 0.4s ease both;
     }
 
-    .hero-tagline {
-      font-size: 13px;
-      font-weight: 300;
-      letter-spacing: 0.3em;
-      color: var(--mid);
-      line-height: 2;
-      max-width: 400px;
-      margin: 0 auto 52px;
+    .hero-divider {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, var(--beige-dk), transparent);
+      margin: 36px auto;
+      animation: fadeUp 1s 0.5s ease both;
     }
 
-    .hero-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 14px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent);
+    .btn-primary {
+      display: inline-block;
+      padding: 16px 52px;
+      border: 1px solid var(--text);
+      color: var(--text);
+      background: transparent;
       text-decoration: none;
-      border: 1px solid rgba(181,144,106,0.5);
-      padding: 18px 44px;
-      transition: all 0.4s;
+      font-size: 0.72rem;
+      letter-spacing: 0.35em;
+      border-radius: 2px;
+      transition: background 0.3s, color 0.3s, transform 0.2s;
+      animation: fadeUp 1s 0.6s ease both;
     }
-    .hero-cta:hover {
-      background: var(--accent);
-      color: var(--white);
-      border-color: var(--accent);
-    }
-    .hero-cta svg { width: 14px; height: 14px; transition: transform 0.3s; }
-    .hero-cta:hover svg { transform: translateX(4px); }
 
-    .hero-scroll {
+    .btn-primary:hover {
+      background: var(--text);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .scroll-hint {
       position: absolute;
       bottom: 40px;
-      left: 50%;
-      transform: translateX(-50%);
+      left: 0;
+      right: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 10px;
+      animation: fadeUp 1s 1s ease both;
     }
-    .hero-scroll span {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9px;
+
+    .scroll-hint span {
+      font-size: 0.58rem;
       letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--muted);
+      color: var(--beige-dk);
     }
+
     .scroll-line {
       width: 1px;
       height: 50px;
-      background: linear-gradient(to bottom, var(--muted), transparent);
-      animation: scrollAnim 2s ease-in-out infinite;
-    }
-    @keyframes scrollAnim {
-      0%, 100% { opacity: 0.3; transform: scaleY(1); }
-      50% { opacity: 1; transform: scaleY(0.7); }
+      background: linear-gradient(to bottom, var(--beige-dk), transparent);
+      animation: scrollLine 2s ease-in-out infinite;
     }
 
-    /* ─── SECTIONS COMMON ─── */
-    section { padding: 120px 48px; }
+    @keyframes scrollLine {
+      0%   { transform: scaleY(0); transform-origin: top; }
+      50%  { transform: scaleY(1); transform-origin: top; }
+      51%  { transform: scaleY(1); transform-origin: bottom; }
+      100% { transform: scaleY(0); transform-origin: bottom; }
+    }
+
+    /* ── Sections ── */
+    section { position: relative; }
+
+    .section-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 36px;
+    }
 
     .section-label {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.72rem;
       letter-spacing: 0.5em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
+      color: var(--beige-dk);
       display: block;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
     .section-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(36px, 5vw, 56px);
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
       font-weight: 300;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 16px;
+      letter-spacing: 0.25em;
+      text-align: center;
+      color: var(--text);
     }
 
-    .divider {
-      width: 40px;
-      height: 1px;
-      background: var(--accent);
-      margin: 0 auto 48px;
+    .section-sub {
+      font-size: 0.72rem;
+      letter-spacing: 0.28em;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 8px;
     }
-    .divider-left { margin: 0 0 48px; }
 
-    /* ─── CONCEPT ─── */
-    .concept {
-      max-width: 1100px;
-      margin: 0 auto;
+    .thin-line {
+      width: 1px;
+      height: 40px;
+      background: var(--beige-dk);
+      margin: 24px auto 0;
+    }
+
+    /* ── About ── */
+    #about {
+      padding: 128px 0;
+      background: var(--white);
+    }
+
+    .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 100px;
+      gap: 88px;
       align-items: center;
     }
 
-    .concept-text p {
-      font-size: 14px;
-      line-height: 2.2;
-      color: var(--mid);
+    .about-text p {
+      font-size: 0.86rem;
+      line-height: 2.6;
+      color: #8c7b6e;
       margin-bottom: 20px;
     }
-    .concept-text p:last-child { margin-bottom: 0; }
 
-    .concept-visual {
-      position: relative;
-    }
-
-    .concept-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      padding: 48px 44px;
-      position: relative;
-      box-shadow: 0 2px 20px rgba(44,37,32,0.05);
-    }
-    .concept-card::before {
-      content: '';
-      position: absolute;
-      top: 10px; left: 10px; right: -10px; bottom: -10px;
-      border: 1px solid rgba(181,144,106,0.15);
-      z-index: -1;
-    }
-
-    .concept-card-num {
+    .about-highlight {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 80px;
-      font-weight: 300;
-      color: rgba(181,144,106,0.15);
-      line-height: 1;
-      margin-bottom: 16px;
-    }
-
-    .concept-card h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 12px;
+      font-style: italic;
+      font-size: 1.1rem;
+      line-height: 2;
+      color: var(--beige-dk);
+      padding: 24px 28px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 32px 0;
       letter-spacing: 0.05em;
     }
 
-    .concept-card p {
-      font-size: 13px;
-      line-height: 2;
-      color: var(--mid);
-    }
-
-    .concept-cards-grid {
-      display: grid;
-      gap: 20px;
-    }
-
-    /* ─── MENU ─── */
-    #menu {
-      background: var(--surface);
-      position: relative;
-      overflow: hidden;
-    }
-    #menu::before {
-      content: 'MENU';
-      position: absolute;
-      top: -20px; right: -20px;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 200px;
-      font-weight: 300;
-      color: rgba(44,37,32,0.03);
-      line-height: 1;
-      pointer-events: none;
-    }
-
-    .menu-inner {
-      max-width: 900px;
-      margin: 0 auto;
+    .about-card {
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 60px 44px;
       text-align: center;
     }
+
+    .about-card-ornament {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--beige);
+      margin-bottom: 20px;
+      letter-spacing: 0.3em;
+    }
+
+    .about-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.3em;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+
+    .about-card-body {
+      font-size: 0.76rem;
+      line-height: 2.2;
+      color: var(--muted);
+    }
+
+    /* ── Menu ── */
+    #menu {
+      padding: 128px 0 0;
+      background: var(--cream);
+    }
+
+    #menu .menu-intro {
+      padding-bottom: 72px;
+    }
+
+    .menu-block {
+      padding: 80px 0;
+    }
+
+    .menu-block-facial {
+      background: var(--facial-bg);
+      border-top: 3px solid var(--facial-accent);
+    }
+
+    .menu-block-relax {
+      background: var(--relax-bg);
+      border-top: 3px solid var(--relax-accent);
+    }
+
+    .menu-block-inner {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 36px;
+    }
+
+    .menu-block-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .menu-block-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .menu-block-facial .menu-block-num { color: var(--facial-accent); }
+    .menu-block-relax  .menu-block-num { color: var(--relax-accent); }
+
+    .menu-block-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 300;
+      letter-spacing: 0.22em;
+      color: var(--text);
+      display: block;
+      line-height: 1;
+    }
+
+    .menu-block-title-jp {
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
+      color: var(--muted);
+      display: block;
+      margin-top: 8px;
+    }
+
+    .menu-block-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.82rem;
+      letter-spacing: 0.3em;
+      text-align: right;
+    }
+
+    .menu-block-facial .menu-block-tagline { color: var(--facial-accent); }
+    .menu-block-relax  .menu-block-tagline { color: var(--relax-muted); }
 
     .menu-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      margin-top: 60px;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
     }
 
-    .menu-item {
+    .menu-card {
       background: var(--white);
-      padding: 44px 40px;
-      text-align: left;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 32px 28px;
+      transition: transform 0.3s, box-shadow 0.3s;
       position: relative;
       overflow: hidden;
-      transition: box-shadow 0.3s, transform 0.3s;
     }
-    .menu-item:hover {
-      box-shadow: 0 4px 24px rgba(44,37,32,0.08);
-      transform: translateY(-2px);
-    }
-    .menu-item::after {
+
+    .menu-card::before {
       content: '';
       position: absolute;
-      bottom: 0; left: 0;
-      width: 0; height: 2px;
-      background: var(--accent);
-      transition: width 0.4s;
-    }
-    .menu-item:hover::after { width: 100%; }
-
-    .menu-item-tag {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 9px;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-      display: block;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
     }
 
-    .menu-item h3 {
+    .menu-block-facial .menu-card::before { background: var(--facial-accent); }
+    .menu-block-relax  .menu-card::before { background: var(--relax-accent); }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 36px rgba(140,120,100,0.1);
+    }
+
+    .menu-badge {
+      display: inline-block;
+      font-size: 0.55rem;
+      letter-spacing: 0.26em;
+      padding: 3px 9px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .menu-block-facial .menu-badge {
+      color: var(--facial-accent);
+      border: 1px solid rgba(184,160,144,0.5);
+      background: rgba(184,160,144,0.07);
+    }
+
+    .menu-block-relax .menu-badge {
+      color: var(--relax-muted);
+      border: 1px solid rgba(138,158,144,0.5);
+      background: rgba(138,158,144,0.07);
+    }
+
+    .menu-name {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 6px;
-      letter-spacing: 0.05em;
-      line-height: 1.4;
+      font-size: 1.12rem;
+      letter-spacing: 0.1em;
+      color: var(--text);
+      margin-bottom: 3px;
     }
 
-    .menu-item-time {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 11px;
+    .menu-name-jp {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
       color: var(--muted);
-      letter-spacing: 0.15em;
+      margin-bottom: 12px;
+    }
+
+    .menu-desc {
+      font-size: 0.72rem;
+      line-height: 2;
+      color: var(--muted);
       margin-bottom: 20px;
     }
 
-    .menu-item p {
-      font-size: 12px;
-      line-height: 1.9;
-      color: var(--mid);
-      margin-bottom: 24px;
-    }
-
-    .price-wrap {
+    .menu-footer {
       display: flex;
-      align-items: baseline;
-      gap: 10px;
+      align-items: flex-end;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid rgba(170,148,128,0.25);
     }
 
-    .price-current {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      font-weight: 400;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-
-    .price-origin {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 12px;
+    .menu-duration {
+      font-size: 0.64rem;
+      letter-spacing: 0.16em;
       color: var(--muted);
-      text-decoration: line-through;
     }
 
-    .menu-item-wide {
-      grid-column: 1 / -1;
+    .menu-price-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--text);
     }
 
-    /* ─── RESERVE BANNER ─── */
-    .reserve-banner {
-      background: linear-gradient(135deg, #f0ebe3, #e8e1d7);
-      border-top: 1px solid rgba(181,144,106,0.2);
-      border-bottom: 1px solid rgba(181,144,106,0.2);
-      padding: 80px 48px;
+    .menu-price-coupon {
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      display: block;
+      text-align: right;
+      margin-top: 2px;
+    }
+
+    .menu-block-facial .menu-price-coupon { color: var(--facial-accent); }
+    .menu-block-relax  .menu-price-coupon { color: var(--relax-muted); }
+
+    .menu-note-wrap {
+      background: var(--cream);
+      padding: 56px 0 128px;
+    }
+
+    .menu-note {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 36px;
+      text-align: center;
+      font-size: 0.7rem;
+      color: var(--muted);
+      line-height: 2;
+    }
+
+    .menu-note a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid var(--beige-dk);
+      transition: border-color 0.3s;
+    }
+
+    .menu-note a:hover { border-color: var(--text); }
+
+    /* ── Features ── */
+    #features {
+      padding: 128px 0;
+      background: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+    }
+
+    .feature-item {
+      text-align: center;
+      padding: 52px 28px;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .feature-item:hover {
+      background: var(--cream);
+      border-color: var(--beige-dk);
+    }
+
+    .feature-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.5rem;
+      color: var(--beige);
+      line-height: 1;
+      margin-bottom: 18px;
+    }
+
+    .feature-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.28em;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .feature-body {
+      font-size: 0.72rem;
+      line-height: 2.2;
+      color: var(--muted);
+    }
+
+    /* ── Info ── */
+    #info {
+      padding: 128px 0;
+      background: var(--cream);
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    .info-table tr { border-bottom: 1px solid var(--border); }
+
+    .info-table th {
+      width: 160px;
+      padding: 22px 0;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .info-table td {
+      padding: 22px 0;
+      line-height: 2;
+      color: var(--text);
+    }
+
+    .info-note {
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .reserve-block {
+      margin-top: 64px;
       text-align: center;
     }
 
-    .reserve-banner h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(28px, 4vw, 48px);
-      font-weight: 300;
-      color: var(--ink);
-      letter-spacing: 0.1em;
-      margin-bottom: 12px;
-    }
-
-    .reserve-banner p {
-      font-size: 13px;
-      color: var(--mid);
-      letter-spacing: 0.2em;
-      margin-bottom: 40px;
+    .reserve-block p {
+      font-size: 0.74rem;
+      letter-spacing: 0.22em;
+      color: var(--muted);
+      margin-bottom: 28px;
     }
 
     .btn-reserve {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 13px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
+      display: inline-block;
+      padding: 18px 68px;
+      background: var(--text);
       color: var(--white);
-      background: var(--accent);
-      padding: 22px 60px;
       text-decoration: none;
-      transition: all 0.3s;
+      font-size: 0.74rem;
+      letter-spacing: 0.38em;
+      border-radius: 2px;
+      transition: background 0.3s, transform 0.2s;
     }
+
     .btn-reserve:hover {
-      background: var(--accent-light);
+      background: #5a4e46;
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(181,144,106,0.3);
-    }
-    .btn-reserve svg { width: 16px; height: 16px; }
-
-    /* ─── ACCESS ─── */
-    .access-inner {
-      max-width: 1000px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
     }
 
-    .info-table { width: 100%; border-collapse: collapse; }
-    .info-table tr { border-bottom: 1px solid var(--border); }
-    .info-table th {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--accent);
-      padding: 20px 0;
-      text-align: left;
-      width: 120px;
-      vertical-align: top;
-    }
-    .info-table td {
-      font-size: 14px;
-      color: var(--mid);
-      padding: 20px 0;
-      line-height: 1.8;
-    }
-
-    .map-placeholder {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      aspect-ratio: 4/3;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-    }
-    .map-placeholder svg { width: 36px; height: 36px; color: var(--accent); opacity: 0.5; }
-    .map-placeholder span {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-    .map-embed {
-      width: 100%;
-      aspect-ratio: 4/3;
-      border: 0;
-      filter: grayscale(1) contrast(0.85) brightness(1.05);
-      opacity: 0.85;
-    }
-
-    /* ─── NOTICE ─── */
-    .notice {
-      max-width: 700px;
-      margin: 0 auto;
-      padding: 32px 0 0;
-      text-align: left;
-    }
-    .notice p {
-      font-size: 12px;
-      line-height: 2.2;
-      color: var(--muted);
-      letter-spacing: 0.05em;
-    }
-    .notice p + p { margin-top: 8px; }
-
-    /* ─── FOOTER ─── */
+    /* ── Footer ── */
     footer {
-      background: var(--surface2);
-      border-top: 1px solid var(--border);
-      padding: 60px 48px 40px;
+      background: #2e2620;
+      padding: 72px 48px 44px;
       text-align: center;
     }
 
     .footer-logo {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
+      font-size: 2rem;
       font-weight: 300;
-      letter-spacing: 0.2em;
-      color: var(--ink);
+      letter-spacing: 0.45em;
+      color: var(--beige-lt);
       margin-bottom: 8px;
     }
-    .footer-logo span { color: var(--accent); }
 
-    .footer-sub {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 36px;
-    }
-
-    .footer-sns {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
+    .footer-tagline {
+      font-size: 0.6rem;
+      letter-spacing: 0.45em;
+      color: rgba(255,255,255,0.28);
       margin-bottom: 40px;
     }
 
+    .footer-sns { margin-bottom: 40px; }
+
     .footer-sns a {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 44px; height: 44px;
-      border: 1px solid rgba(181,144,106,0.4);
-      color: var(--accent);
+      width: 44px;
+      height: 44px;
+      border: 1px solid rgba(232,221,208,0.3);
+      border-radius: 50%;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: background 0.3s, border-color 0.3s;
     }
+
     .footer-sns a:hover {
-      background: var(--accent);
-      color: var(--white);
-      border-color: var(--accent);
+      background: rgba(232,221,208,0.15);
+      border-color: rgba(232,221,208,0.6);
     }
-    .footer-sns svg { width: 18px; height: 18px; }
+
+    .footer-sns svg {
+      width: 18px;
+      height: 18px;
+      fill: var(--beige-lt);
+    }
 
     .footer-nav {
       display: flex;
       justify-content: center;
-      gap: 32px;
-      margin-bottom: 36px;
+      gap: 36px;
+      list-style: none;
+      margin-bottom: 40px;
     }
+
     .footer-nav a {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--muted);
+      font-size: 0.62rem;
+      letter-spacing: 0.28em;
+      color: rgba(255,255,255,0.35);
       text-decoration: none;
       transition: color 0.3s;
     }
-    .footer-nav a:hover { color: var(--accent); }
+
+    .footer-nav a:hover { color: var(--beige-lt); }
 
     .footer-copy {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 10px;
-      letter-spacing: 0.1em;
-      color: var(--muted);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.18);
     }
 
-    /* ─── FADE IN ─── */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
+    /* ── Animations ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
     }
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .fade-up.delay-1 { transition-delay: 0.15s; }
-    .fade-up.delay-2 { transition-delay: 0.3s; }
-    .fade-up.delay-3 { transition-delay: 0.45s; }
 
-    /* ─── RESPONSIVE ─── */
+    .reveal { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
     @media (max-width: 768px) {
-      header { padding: 20px 24px; }
-      nav { display: none; }
-
-      section { padding: 80px 24px; }
-
-      .concept { grid-template-columns: 1fr; gap: 60px; }
-      .menu-grid { grid-template-columns: 1fr; }
-      .menu-item-wide { grid-column: 1; }
-      .access-inner { grid-template-columns: 1fr; gap: 48px; }
-
-      .hero-line { display: none; }
-
-      footer { padding: 48px 24px 32px; }
-      .footer-nav { flex-wrap: wrap; gap: 20px; }
-    }
-
-    @media (max-width: 480px) {
-      .hero-title { font-size: 64px; }
-      .reserve-banner { padding: 60px 24px; }
-      .btn-reserve { padding: 18px 36px; font-size: 11px; }
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .features-grid { grid-template-columns: 1fr; gap: 20px; }
+      .section-wrap { padding: 0 20px; }
+      #about, #features, #info { padding: 80px 0; }
+      #menu { padding: 80px 0 0; }
+      footer { padding: 56px 20px 36px; }
+      .footer-nav { gap: 20px; flex-wrap: wrap; }
+      .menu-block { padding: 56px 0; }
+      .menu-block-inner { padding: 0 20px; }
+      .menu-block-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .menu-block-tagline { text-align: left; }
+      .menu-block-num { font-size: 3rem; }
+      .menu-note-wrap { padding: 40px 0 80px; }
+      .menu-note { padding: 0 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <a href="#" class="logo">H<span>anna</span></a>
-    <nav>
-      <a href="#concept">Concept</a>
-      <a href="#menu">Menu</a>
-      <a href="#access">Access</a>
-      <a href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1" target="_blank" rel="noopener" class="nav-reserve">Reserve</a>
-    </nav>
-  </header>
+<canvas id="glitter-canvas"></canvas>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-grain"></div>
-    <div class="hero-line"></div>
-    <div class="hero-line"></div>
+<nav>
+  <a class="nav-logo" href="#hero">Hanna</a>
+  <ul class="nav-links">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#menu">MENU</a></li>
+    <li><a href="#features">CONCEPT</a></li>
+    <li><a href="#info">ACCESS</a></li>
+    <li>
+      <a class="nav-reserve"
+         href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1"
+         target="_blank" rel="noopener">RESERVE</a>
+    </li>
+  </ul>
+</nav>
 
-    <div class="hero-content">
-      <p class="hero-sub">Private Esthetic Salon — Tokushima</p>
-      <h1 class="hero-title">Hanna</h1>
-      <span class="hero-title-ja">ハンナ</span>
-      <p class="hero-tagline">
-        生きた手技と、肌への真剣な向き合い。<br>
-        あなたの肌を、本質から変えていく。
-      </p>
-      <a href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1" target="_blank" rel="noopener" class="hero-cta">
-        ご予約はこちら
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <path d="M5 12h14M13 6l6 6-6 6"/>
-        </svg>
-      </a>
-    </div>
+<section id="hero">
+  <div class="hero-deco hero-deco-1"></div>
+  <div class="hero-deco hero-deco-2"></div>
+  <span class="hero-tagline">Tokushima Private Esthetic Salon</span>
+  <h1 class="hero-title">Hanna</h1>
+  <p class="hero-sub">
+    オールハンドと結果にこだわるサロン<br>
+    あなた本来の美しさを、生きた手技で引き出す
+  </p>
+  <div class="hero-divider"></div>
+  <a class="btn-primary"
+     href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1"
+     target="_blank" rel="noopener">ご予約はこちら</a>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
 
-    <div class="hero-scroll">
-      <span>Scroll</span>
-      <div class="scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- CONCEPT -->
-  <section id="concept">
-    <div class="concept fade-up">
-      <div class="concept-text">
-        <span class="section-label">Concept</span>
-        <h2 class="section-title">
-          オールハンドと<br>結果へのこだわり
-        </h2>
-        <div class="divider-left"></div>
+<section id="about">
+  <div class="section-wrap">
+    <span class="section-label reveal">About</span>
+    <h2 class="section-title reveal">Hanna について</h2>
+    <div class="thin-line reveal" style="margin-bottom:56px;"></div>
+    <div class="about-grid">
+      <div class="about-text reveal">
         <p>
-          機械に頼らず、施術者の「手」だけで変化を生み出す。
-          それがHannaのこだわりです。
+          徳島市の隠れ家プライベートサロン <strong>Hanna</strong>。<br>
+          機械に頼らず、すべてオールハンドで行う施術で、<br>
+          お客様一人ひとりの肌と身体に向き合います。
+        </p>
+        <blockquote class="about-highlight">
+          "生きた手技だからこそ届く、<br>本質的な美しさへ。"
+        </blockquote>
+        <p>
+          ニキビ・赤ら顔・毛穴・エイジングケアなど<br>
+          肌の悩みに寄り添い、県外からもお越しいただける<br>
+          確かな結果を積み重ねてきました。
         </p>
         <p>
-          肌質改善・ニキビ・赤ら顔など、
-          肌の悩みは人それぞれ。
-          一人ひとりの肌と向き合い、
-          その日に必要なアプローチを選び抜きます。
-        </p>
-        <p>
-          徳島市を拠点に、県外からもお越しいただく
-          実力派のプライベートサロン。
-          女性専用・完全個室・完全予約制で、
-          心も肌も安心してお任せください。
+          完全予約制のプライベート空間で、<br>
+          フェイシャルからボディ・ヘッドスパまで<br>
+          トータルで美と癒しをお届けします。
         </p>
       </div>
-      <div class="concept-visual">
-        <div class="concept-cards-grid">
-          <div class="concept-card fade-up delay-1">
-            <div class="concept-card-num">01</div>
-            <h3>All Hand Technique</h3>
-            <p>機械を使わず、手技の力だけで肌に働きかけます。温度・圧力・リズムを感じながら、肌の状態に合わせて施術。</p>
-          </div>
-          <div class="concept-card fade-up delay-2">
-            <div class="concept-card-num">02</div>
-            <h3>Skin Care Result</h3>
-            <p>「体験で終わらない、結果を出すサロン」。肌質改善・ニキビ・赤ら顔など、ゴールを見据えた施術計画。</p>
-          </div>
-          <div class="concept-card fade-up delay-3">
-            <div class="concept-card-num">03</div>
-            <h3>Private & Safe Space</h3>
-            <p>女性専用・完全個室。誰にも邪魔されない特別な時間と空間で、ゆっくりとお過ごしください。</p>
-          </div>
+      <div class="about-visual reveal">
+        <div class="about-card">
+          <p class="about-card-ornament">— h —</p>
+          <p class="about-card-title">ALL HAND TREATMENT</p>
+          <p class="about-card-body">
+            すべての施術はオールハンドで行います。<br>
+            機械では感じ取れない肌や身体の変化を<br>
+            熟練の手技で丁寧にケアします。
+          </p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- MENU -->
-  <section id="menu">
-    <div class="menu-inner">
-      <span class="section-label fade-up">Menu &amp; Price</span>
-      <h2 class="section-title fade-up">メニュー・料金</h2>
-      <div class="divider fade-up"></div>
-
-      <div class="menu-grid">
-
-        <div class="menu-item fade-up">
-          <span class="menu-item-tag">Skin Care</span>
-          <h3>肌質改善コース</h3>
-          <div class="menu-item-time">60 min</div>
-          <p>肌のくすみ・毛穴・乾燥など、根本的な肌質にアプローチ。オールハンドで肌本来の力を引き出します。</p>
-          <div class="price-wrap">
-            <span class="price-current">¥7,000</span>
-            <span class="price-origin">通常 ¥9,000</span>
-          </div>
-        </div>
-
-        <div class="menu-item fade-up delay-1">
-          <span class="menu-item-tag">Pore Care</span>
-          <h3>徹底毛穴改善コース</h3>
-          <div class="menu-item-time">70 min</div>
-          <p>詰まり・開き・黒ずみなど、毛穴の悩みを集中ケア。時間をかけてじっくり向き合います。</p>
-          <div class="price-wrap">
-            <span class="price-current">¥8,000</span>
-            <span class="price-origin">通常 ¥10,000</span>
-          </div>
-        </div>
-
-        <div class="menu-item fade-up delay-2">
-          <span class="menu-item-tag">Facial</span>
-          <h3>フェイシャルトリートメント</h3>
-          <div class="menu-item-time">60 min</div>
-          <p>お肌を整えながら心もリラックス。日々の疲れを癒しながら、透明感のある肌へと導きます。</p>
-          <div class="price-wrap">
-            <span class="price-current">¥7,000</span>
-            <span class="price-origin">通常 ¥9,000</span>
-          </div>
-        </div>
-
-        <div class="menu-item fade-up delay-3">
-          <span class="menu-item-tag">Body</span>
-          <h3>全身もみほぐし</h3>
-          <div class="menu-item-time">60 min</div>
-          <p>肩・背中・腰など、全身の疲れをほぐします。忙しい日常に溜まったコリを丁寧にほどいていきます。</p>
-          <div class="price-wrap">
-            <span class="price-current">¥4,500</span>
-          </div>
-        </div>
-
-        <div class="menu-item menu-item-wide fade-up">
-          <span class="menu-item-tag">New Guest Limited</span>
-          <h3>フェイシャル ＋ 炭酸ドライヘッドスパ <span style="font-size:14px;color:var(--gold);margin-left:12px;">新規限定</span></h3>
-          <div class="menu-item-time">40 min + 20 min</div>
-          <p>フェイシャルとヘッドスパを組み合わせたお得なセットコース。初めてのお客様にぜひお試しいただきたい、Hannaを体験するにぴったりのメニューです。</p>
-          <div class="price-wrap">
-            <span class="price-current">¥6,800</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- RESERVE BANNER -->
-  <div class="reserve-banner">
-    <h2 class="fade-up">ご予約はホットペッパービューティーから</h2>
-    <p class="fade-up delay-1">完全予約制 | 女性専用 | 完全個室</p>
-    <a href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1" target="_blank" rel="noopener" class="btn-reserve fade-up delay-2">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-        <line x1="16" y1="2" x2="16" y2="6"/>
-        <line x1="8" y1="2" x2="8" y2="6"/>
-        <line x1="3" y1="10" x2="21" y2="10"/>
-      </svg>
-      今すぐ予約する
-    </a>
+<!-- ── Menu ── -->
+<section id="menu">
+  <div class="menu-intro section-wrap">
+    <span class="section-label reveal">Menu &amp; Price</span>
+    <h2 class="section-title reveal">メニュー・料金</h2>
+    <p class="section-sub reveal">すべて税込価格</p>
+    <div class="thin-line reveal"></div>
   </div>
 
-  <!-- ACCESS -->
-  <section id="access">
-    <div class="access-inner">
-      <div class="fade-up">
-        <span class="section-label">Access &amp; Info</span>
-        <h2 class="section-title">アクセス・<br>営業情報</h2>
-        <div class="divider-left"></div>
-        <table class="info-table">
-          <tr>
-            <th>サロン名</th>
-            <td>ハンナ (Hanna)</td>
-          </tr>
-          <tr>
-            <th>エリア</th>
-            <td>徳島県徳島市住吉</td>
-          </tr>
-          <tr>
-            <th>住所</th>
-            <td>
-              自宅サロンのため、<br>
-              予約確定後にご案内いたします
-            </td>
-          </tr>
-          <tr>
-            <th>アクセス</th>
-            <td>徳島駅より車で約10分</td>
-          </tr>
-          <tr>
-            <th>営業時間</th>
-            <td>9:00 〜 18:00</td>
-          </tr>
-          <tr>
-            <th>定休日</th>
-            <td>不定休</td>
-          </tr>
-          <tr>
-            <th>対象</th>
-            <td>女性専用</td>
-          </tr>
-          <tr>
-            <th>予約方法</th>
-            <td>
-              ホットペッパービューティーより<br>完全予約制
-            </td>
-          </tr>
-        </table>
+  <!-- フェイシャルブロック -->
+  <div class="menu-block menu-block-facial reveal">
+    <div class="menu-block-inner">
+      <div class="menu-block-header">
+        <div class="menu-block-title-wrap">
+          <span class="menu-block-num">01</span>
+          <span class="menu-block-title-en">Facial</span>
+          <span class="menu-block-title-jp">フェイシャルメニュー</span>
+        </div>
+        <span class="menu-block-tagline">Beauty from within.</span>
       </div>
-      <div class="fade-up delay-1">
-        <iframe
-          class="map-embed"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3276.5!2d134.5594!3d34.0657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x355232a0b8741dab%3A0xa72a34ede2e7b01b!2z5b6z5bO25biC!5e0!3m2!1sja!2sjp!4v1"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Hanna Salon Map"
-        ></iframe>
-        <div class="notice">
-          <p>※ 自宅サロンのため、詳しい住所は<br>ご予約確定後にご案内いたします。</p>
-          <p>※ 予約時間の1時間以内にネット予約される場合は、<br>ご予約後にお電話にてご連絡ください。</p>
+
+      <div class="menu-grid">
+        <div class="menu-card">
+          <span class="menu-badge">人気 No.1</span>
+          <p class="menu-name">Skin Improvement</p>
+          <p class="menu-name-jp">肌質改善コース</p>
+          <p class="menu-desc">肌本来のバランスを整え、透明感と潤いを引き出すHannaの定番コース。</p>
+          <div class="menu-footer">
+            <span class="menu-duration">60 min</span>
+            <div>
+              <span class="menu-price-main">¥9,000</span>
+              <span class="menu-price-coupon">クーポン利用 ¥7,000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <span class="menu-badge">人気 No.2</span>
+          <p class="menu-name">Pore Refining</p>
+          <p class="menu-name-jp">徹底毛穴改善コース</p>
+          <p class="menu-desc">毛穴の開き・黒ずみ・詰まりを徹底ケア。きめ細かなツルツル肌へ。</p>
+          <div class="menu-footer">
+            <span class="menu-duration">70 min</span>
+            <div>
+              <span class="menu-price-main">¥10,000</span>
+              <span class="menu-price-coupon">クーポン利用 ¥8,000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <span class="menu-badge">STANDARD</span>
+          <p class="menu-name">Facial Treatment</p>
+          <p class="menu-name-jp">フェイシャルトリートメント（選べるパック付き）</p>
+          <p class="menu-desc">クレンジングから保湿まで、選べるパック付きで肌を整える基本のフェイシャルコース。</p>
+          <div class="menu-footer">
+            <span class="menu-duration">60 min</span>
+            <div>
+              <span class="menu-price-main">¥9,000</span>
+              <span class="menu-price-coupon">クーポン利用 ¥7,000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <span class="menu-badge">NEW GUEST</span>
+          <p class="menu-name">Facial + Head Spa</p>
+          <p class="menu-name-jp">フェイシャル＋炭酸ドライヘッドスパ</p>
+          <p class="menu-desc">フェイシャル40分＋炭酸ドライヘッドスパ20分の新規様向けお得なセット。</p>
+          <div class="menu-footer">
+            <span class="menu-duration">60 min</span>
+            <div>
+              <span class="menu-price-main">¥6,800</span>
+              <span class="menu-price-coupon">新規様限定</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-logo">H<span>anna</span></div>
-    <div class="footer-sub">Private Esthetic Salon — Tokushima</div>
+  <!-- リラクゼーションブロック -->
+  <div class="menu-block menu-block-relax reveal">
+    <div class="menu-block-inner">
+      <div class="menu-block-header">
+        <div class="menu-block-title-wrap">
+          <span class="menu-block-num">02</span>
+          <span class="menu-block-title-en">Relaxation</span>
+          <span class="menu-block-title-jp">リラクゼーションメニュー</span>
+        </div>
+        <span class="menu-block-tagline">Rest. Restore. Renew.</span>
+      </div>
 
-    <div class="footer-sns">
-      <!-- Instagram -->
-      <a href="https://www.instagram.com/glitter.hanna/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-        </svg>
-      </a>
-      <!-- HotPepper Beauty -->
-      <a href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1" target="_blank" rel="noopener" aria-label="ホットペッパービューティー">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-          <line x1="16" y1="2" x2="16" y2="6"/>
-          <line x1="8" y1="2" x2="8" y2="6"/>
-          <line x1="3" y1="10" x2="21" y2="10"/>
-        </svg>
-      </a>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <span class="menu-badge">リラク人気・満足度 No.1</span>
+          <p class="menu-name">Full Body Massage</p>
+          <p class="menu-name-jp">全身もみほぐし（ホットアイマスク付）</p>
+          <p class="menu-desc">全身の疲れをほぐす定番のリラクゼーション。ホットアイマスク付きで深いリラックスを。</p>
+          <div class="menu-footer">
+            <span class="menu-duration">60 min</span>
+            <div>
+              <span class="menu-price-main">¥4,500</span>
+              <span class="menu-price-coupon">&nbsp;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <span class="menu-badge">リラク人気 No.2</span>
+          <p class="menu-name">Carbonated Head Spa</p>
+          <p class="menu-name-jp">炭酸ドライヘッドスパ（ホットアイマスク付）</p>
+          <p class="menu-desc">高濃度炭酸ジェルで心地よい刺激を与え、カッサで凝り固まった頭皮をほぐします。</p>
+          <div class="menu-footer">
+            <span class="menu-duration">30 min</span>
+            <div>
+              <span class="menu-price-main">¥3,500</span>
+              <span class="menu-price-coupon">&nbsp;</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-card">
+          <span class="menu-badge">SEASONAL</span>
+          <p class="menu-name">Aroma Leg Treatment</p>
+          <p class="menu-name-jp">下半身アロマオイルトリートメント（前面）</p>
+          <p class="menu-desc">アロマオイルで下半身（前面）を丁寧にトリートメント。むくみ・疲れに。</p>
+          <div class="menu-footer">
+            <span class="menu-duration">30 min</span>
+            <div>
+              <span class="menu-price-main">¥3,500</span>
+              <span class="menu-price-coupon">クーポン利用 ¥2,800</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <nav class="footer-nav">
-      <a href="#concept">Concept</a>
-      <a href="#menu">Menu</a>
-      <a href="#access">Access</a>
-      <a href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1" target="_blank" rel="noopener">Reserve</a>
-    </nav>
+  <div class="menu-note-wrap">
+    <p class="menu-note reveal">
+      クーポン・最新情報は
+      <a href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1"
+         target="_blank" rel="noopener">ホットペッパービューティー</a>
+      にてご確認ください。
+    </p>
+  </div>
+</section>
 
-    <p class="footer-copy">&copy; 2024 Hanna. All rights reserved.</p>
-  </footer>
+<section id="features">
+  <div class="section-wrap">
+    <span class="section-label reveal">Concept</span>
+    <h2 class="section-title reveal">Hannaのこだわり</h2>
+    <div class="thin-line reveal" style="margin-bottom:56px;"></div>
+    <div class="features-grid">
+      <div class="feature-item reveal">
+        <p class="feature-num">01</p>
+        <p class="feature-title">ALL HAND</p>
+        <p class="feature-body">機械を使わず、すべてハンドで施術。<br>熟練の手技で肌・身体の奥まで<br>丁寧にアプローチします。</p>
+      </div>
+      <div class="feature-item reveal">
+        <p class="feature-num">02</p>
+        <p class="feature-title">RESULT-FOCUSED</p>
+        <p class="feature-body">確かな結果にこだわるサロン。<br>ニキビ・赤ら顔・毛穴など<br>悩みに合わせたケアを提供。</p>
+      </div>
+      <div class="feature-item reveal">
+        <p class="feature-num">03</p>
+        <p class="feature-title">PRIVATE SPACE</p>
+        <p class="feature-body">完全予約制のプライベートサロン。<br>リラックスできる空間で<br>丁寧な施術をお届けします。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Intersection Observer for fade-up animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.12 });
+<section id="info">
+  <div class="section-wrap">
+    <span class="section-label reveal">Access &amp; Info</span>
+    <h2 class="section-title reveal">サロン情報</h2>
+    <div class="thin-line reveal" style="margin-bottom:56px;"></div>
+    <div class="reveal">
+      <table class="info-table">
+        <tr><th>サロン名</th><td>ハンナ（Hanna）</td></tr>
+        <tr>
+          <th>住所</th>
+          <td>徳島県徳島市住吉<p class="info-note">※ 自宅サロンのため、予約確定後にご住所をお知らせします</p></td>
+        </tr>
+        <tr>
+          <th>アクセス</th>
+          <td>徳島駅より車で約10分</td>
+        </tr>
+        <tr>
+          <th>営業時間</th>
+          <td>9:00 〜 18:00<p class="info-note">※ ご予約の1時間以内にご連絡の場合はお電話にてご確認ください</p></td>
+        </tr>
+        <tr><th>定休日</th><td>不定休</td></tr>
+        <tr><th>スタッフ</th><td>2名</td></tr>
+        <tr><th>対象</th><td>女性専用</td></tr>
+        <tr><th>予約方法</th><td>ホットペッパービューティーよりご予約ください</td></tr>
+      </table>
+    </div>
+    <div class="reserve-block reveal">
+      <p>ご予約はホットペッパービューティーから承っております</p>
+      <a class="btn-reserve"
+         href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1"
+         target="_blank" rel="noopener">今すぐ予約する</a>
+    </div>
+  </div>
+</section>
 
-    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-  </script>
+<footer>
+  <p class="footer-logo">Hanna</p>
+  <p class="footer-tagline">ESTHETIC SALON TOKUSHIMA</p>
+  <div class="footer-sns">
+    <a href="https://www.instagram.com/glitter.hanna/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+      </svg>
+    </a>
+  </div>
+  <ul class="footer-nav">
+    <li><a href="#about">ABOUT</a></li>
+    <li><a href="#menu">MENU</a></li>
+    <li><a href="#features">CONCEPT</a></li>
+    <li><a href="#info">ACCESS</a></li>
+    <li><a href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1" target="_blank" rel="noopener">RESERVE</a></li>
+  </ul>
+  <p class="footer-copy">&copy; 2024 Hanna Esthetic Salon. All rights reserved.</p>
+</footer>
+
+<script>
+  const canvas = document.getElementById('glitter-canvas');
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function createParticle() {
+    const palette = ['#e8ddd0', '#d4c5b0', '#f2ece4', '#cfc0ad'];
+    return {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.6 + 0.3,
+      dx: (Math.random() - 0.5) * 0.25,
+      dy: -Math.random() * 0.35 - 0.08,
+      alpha: Math.random() * 0.55 + 0.15,
+      dAlpha: (Math.random() * 0.004 + 0.001) * (Math.random() < 0.5 ? 1 : -1),
+      color: palette[Math.floor(Math.random() * palette.length)],
+    };
+  }
+
+  function initParticles() { particles = Array.from({ length: 70 }, createParticle); }
+
+  function animateGlitter() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const p of particles) {
+      ctx.save();
+      ctx.globalAlpha = Math.max(0, Math.min(1, p.alpha));
+      ctx.fillStyle = p.color;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+      p.x += p.dx; p.y += p.dy; p.alpha += p.dAlpha;
+      if (p.alpha <= 0 || p.alpha >= 0.75) p.dAlpha *= -1;
+      if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+      if (p.x < -10 || p.x > canvas.width + 10) p.x = Math.random() * canvas.width;
+    }
+    requestAnimationFrame(animateGlitter);
+  }
+
+  window.addEventListener('resize', () => { resize(); initParticles(); });
+  resize(); initParticles(); animateGlitter();
+</script>
 </body>
 </html>
