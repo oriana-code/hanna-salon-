@@ -183,9 +183,49 @@
       transform: translateY(-2px);
     }
 
+    .hero-reserve-text {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      margin-bottom: 28px;
+      animation: fadeUp 1s 0.6s ease both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 1s 0.7s ease both;
+    }
+
+    .btn-hotpepper {
+      background: transparent;
+      border-color: #d9b8bc;
+      color: #a07078;
+    }
+
+    .btn-hotpepper:hover {
+      background: #d9b8bc;
+      border-color: #d9b8bc;
+      color: var(--white);
+    }
+
+    .btn-insta {
+      background: transparent;
+      border-color: #f0c8cc;
+      color: #c08088;
+    }
+
+    .btn-insta:hover {
+      background: #f0c8cc;
+      border-color: #f0c8cc;
+      color: var(--white);
+    }
+
     .scroll-hint {
       position: absolute;
-      bottom: 40px;
+      bottom: 16px;
       left: 0;
       right: 0;
       display: flex;
@@ -783,9 +823,15 @@
     あなた本来の美しさを、生きた手技で引き出す
   </p>
   <div class="hero-divider"></div>
-  <a class="btn-primary"
-     href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1"
-     target="_blank" rel="noopener">ご予約はこちら</a>
+  <p class="hero-reserve-text">ご予約はホットペッパー、またはインスタグラムのDMからも承っております。</p>
+  <div class="hero-btns">
+    <a class="btn-primary btn-hotpepper"
+       href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1"
+       target="_blank" rel="noopener">ホットペッパーから予約</a>
+    <a class="btn-primary btn-insta"
+       href="https://www.instagram.com/glitter.hanna/"
+       target="_blank" rel="noopener">インスタから予約</a>
+  </div>
   <div class="scroll-hint">
     <span>SCROLL</span>
     <div class="scroll-line"></div>
@@ -971,7 +1017,7 @@
       クーポン・最新情報は
       <a href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1"
          target="_blank" rel="noopener">ホットペッパービューティー</a>
-      にてご確認ください。
+      または<a href="https://www.instagram.com/glitter.hanna/" target="_blank" rel="noopener">インスタグラム</a>にてご確認ください。
     </p>
   </div>
 </section>
@@ -1019,19 +1065,23 @@
         </tr>
         <tr>
           <th>営業時間</th>
-          <td>9:00 〜 18:00<p class="info-note">※ ご予約の1時間以内にご連絡の場合はお電話にてご確認ください</p></td>
+          <td>9:00 〜 18:00</td>
         </tr>
         <tr><th>定休日</th><td>不定休</td></tr>
         <tr><th>スタッフ</th><td>2名</td></tr>
         <tr><th>対象</th><td>女性専用</td></tr>
-        <tr><th>予約方法</th><td>ホットペッパービューティーよりご予約ください</td></tr>
       </table>
     </div>
     <div class="reserve-block reveal">
-      <p>ご予約はホットペッパービューティーから承っております</p>
-      <a class="btn-reserve"
-         href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1"
-         target="_blank" rel="noopener">今すぐ予約する</a>
+      <p>ご予約はホットペッパー、またはインスタグラムのDMからも承っております</p>
+      <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+        <a class="btn-primary btn-hotpepper"
+           href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1"
+           target="_blank" rel="noopener">ホットペッパーから予約</a>
+        <a class="btn-primary btn-insta"
+           href="https://www.instagram.com/glitter.hanna/"
+           target="_blank" rel="noopener">インスタから予約</a>
+      </div>
     </div>
   </div>
 </section>
