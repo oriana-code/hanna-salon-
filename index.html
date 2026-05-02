@@ -1149,10 +1149,12 @@
     <li><a href="#info">ACCESS</a></li>
     <li><a href="https://beauty.hotpepper.jp/kr/slnH000774931/?cstt=1" target="_blank" rel="noopener">RESERVE</a></li>
   </ul>
-  <p class="footer-copy">&copy; 2026 Hanna Beauty &amp; Relaxation Salon. All rights reserved.</p>
+  <p class="footer-copy">&copy; <span id="copy-year"></span> Hanna Beauty &amp; Relaxation Salon. All rights reserved.</p>
 </footer>
 
 <script>
+  document.getElementById('copy-year').textContent = new Date().getFullYear();
+
   const canvas = document.getElementById('glitter-canvas');
   const ctx = canvas.getContext('2d');
   let particles = [];
